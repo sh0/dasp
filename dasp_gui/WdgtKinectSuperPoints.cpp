@@ -6,6 +6,7 @@
 #include <boost/bind.hpp>
 #include <QtGui/QMessageBox>
 #include <QtGui/QFileDialog>
+#include <QCloseEvent>
 #include <boost/format.hpp>
 
 WdgtKinectSuperPoints::WdgtKinectSuperPoints(bool no3d, QWidget *parent)
@@ -134,7 +135,7 @@ void WdgtKinectSuperPoints::LoadOni(const std::string& fn)
 
 	mode_ = ReplayOniMode;
 	remembered_capture_fn_ = fn;
-	
+
 	ui.horizontalSliderFrame->setEnabled(true);
 	std::cout << "Number of frames: " << random_access_rgbd_stream->numFrames() << std::endl;
 	ui.horizontalSliderFrame->setMaximum(random_access_rgbd_stream->numFrames());

@@ -565,7 +565,7 @@ namespace SegmentExtraction
 					continue;
 				}
 				// find segment
-				Segment result = ExtractSegment(labels, visited, Point{x, y});
+				Segment result = ExtractSegment(labels, visited, Point{static_cast<int>(x), static_cast<int>(y)});
 				segments.push_back(result);
 			}
 		}

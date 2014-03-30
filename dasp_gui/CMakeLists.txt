@@ -69,6 +69,7 @@ TARGET_LINK_LIBRARIES(dasp_gui
 	libdasp
 	rgbd
 	${QT_LIBRARIES}
+	pthread
 	boost_signals
 	boost_thread
 	boost_program_options

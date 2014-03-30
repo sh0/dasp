@@ -66,7 +66,7 @@ std::vector<unsigned int> ComputeAllBorderPixels(const Superpixels& superpixels)
 {
 	slimage::Image1i labels = superpixels.ComputeLabels();
 	std::set<unsigned int> u;
-	int face_neighbours[] = { -1, +1, -labels.width(), +labels.width() };
+	int face_neighbours[] = { -1, +1, -static_cast<int>(labels.width()), static_cast<int>(labels.width()) };
 	for(unsigned int y=1; y<labels.height()-1; y++) {
 		for(unsigned int x=1; x<labels.width()-1; x++) {
 			int q = labels.index(x,y);
@@ -121,7 +121,7 @@ std::vector<BorderPixel> ComputeBorderLabels(unsigned int cid, const Superpixels
 			for(int i=0; i<4; i++) {
 				int label = labels[pid + d[i]];
 				if(label != cid && label != -1) {
-					border.push_back(BorderPixel{pid, label});
+					border.push_back(BorderPixel{pid, static_cast<unsigned int>(label)});
 				}
 			}
 		}

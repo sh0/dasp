@@ -42,8 +42,8 @@ DenseGev<K> dense_graph_to_gev(const Graph& graph, EdgeWeightMap edge_weights)
 	vector_t D = vector_t::Zero(dim);
 
 #ifdef SPECTRAL_VERBOSE
-	std::cout << "DEBUG: Number of vertices = " << boost::num_vertices(graph) << std::endl; 
-	std::cout << "DEBUG: Number of edges = " << boost::num_edges(graph) << std::endl; 
+	std::cout << "DEBUG: Number of vertices = " << boost::num_vertices(graph) << std::endl;
+	std::cout << "DEBUG: Number of edges = " << boost::num_edges(graph) << std::endl;
 #endif
 
 	for(auto eid : as_range(boost::edges(graph))) {
@@ -92,7 +92,7 @@ DenseGev<K> dense_graph_to_gev(const Graph& graph, EdgeWeightMap edge_weights)
 		}
 		std::cout << std::endl;
 	}
-#endif	
+#endif
 	// compute matrix L = D - W
 	matrix_t L = -W;
 	for(unsigned int i=0; i<dim; i++) {
@@ -203,7 +203,7 @@ SparseGEVT<K> sparse_graph_entries(const Graph& graph, EdgeWeightMap edge_weight
 		if(ea < eb) {
 			std::swap(ea, eb);
 		}
-		entries.push_back(SparseEntry{ea, eb, ew});
+		entries.push_back(SparseEntry{static_cast<unsigned int>(ea), static_cast<unsigned int>(eb), ew});
 		diag[ea] += ew;
 		diag[eb] += ew;
 	}

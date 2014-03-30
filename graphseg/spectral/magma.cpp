@@ -14,7 +14,7 @@ struct MagmaSpectralSolver
 			std::cerr << "MAGMA ERROR: cublasInit failed\n";
 			exit(-1);
 		}
-		printout_devices();
+		//printout_devices();
 	}
 
 	template<typename K>
@@ -74,7 +74,7 @@ std::vector<EigenComponent> solver_magma(const Eigen::MatrixXf& A, unsigned int 
 	magma_int_t *iwork;
 
 	const char *uplo = MagmaLowerStr;
-	const char *jobz = MagmaVectorsStr;
+	const char *jobz = MagmaVecStr;
 
 	/* Query for workspace sizes */
 	float      aux_work[1];

@@ -79,9 +79,9 @@ std::vector<EigenComponent> solver_lapack(const Eigen::MatrixXf& Ain, unsigned i
 	iwork = new int[iwork_dim];
 
 	ssyevr_(
-		"V", // JOBZ eigenvalues + eigenvectors
-		"A", // RANGE only some eigenvalues
-		"U", // UPLO upper triangle is stored
+		const_cast<char*>("V"), // JOBZ eigenvalues + eigenvectors
+		const_cast<char*>("A"), // RANGE only some eigenvalues
+		const_cast<char*>("U"), // UPLO upper triangle is stored
 		&N, // N order of A
 		data, // A upper triangle of A
 		&N, // LDA leading dimension of A

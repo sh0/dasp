@@ -8,7 +8,6 @@ namespace eval {
 template<typename FPX, typename FSEG, typename D>
 float CompressionError(const Partition& partition, FPX fpx, FSEG fseg, D metric)
 {
-	assert(partition.numSegments() == cluster_features.size());
 	float total = 0.0f;
 	unsigned int num = 0;
 	for(unsigned int i=0; i<partition.numSegments(); i++) {

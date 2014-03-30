@@ -1,7 +1,6 @@
 #include <asp/asp.hpp>
 #include <density/PointDensity.hpp>
 #include <Slimage/Slimage.hpp>
-#define SLIMAGE_IO_OPENCV
 #include <Slimage/IO.hpp>
 #include <boost/program_options.hpp>
 #include <boost/timer/timer.hpp>
@@ -113,7 +112,7 @@ int main(int argc, char** argv)
 
 	bool is_features_null = p_feature_img.empty();
 	bool is_density_null = p_density.empty();
-	
+
 	Eigen::MatrixXf rho;
 	std::vector<Eigen::Vector3f> features;
 	int width = -1, height = -1;

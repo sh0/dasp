@@ -24,6 +24,7 @@ include_directories(
 target_link_libraries(libdasp
 	pds
 	graphseg
+	boost_system
 	boost_thread
 )
 

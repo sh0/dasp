@@ -8,6 +8,7 @@ if (USE_SOLVER_MAGMA)
 	LIST(APPEND graphseg_DEFINES
 		-DUSE_SOLVER_MAGMA
 		-DADD_
+		-DHAVE_CUBLAS
 	)
 endif (USE_SOLVER_MAGMA)
 
@@ -59,7 +60,7 @@ INCLUDE_DIRECTORIES(graphseg ${graphseg_INCLUDES})
 
 
 SET(graphseg_LIBRARIES
-	parpack
+	#parpack
 	arpack
 	superlu
 	lapack
@@ -69,9 +70,9 @@ SET(graphseg_LIBRARIES
 if (USE_SOLVER_MAGMA)
 	LIST(APPEND graphseg_LIBRARIES
 		magma
-		magmablas
+		#magmablas
 		lapack
-		f2c
+		#f2c
 		cublas
 		m
 		cudart

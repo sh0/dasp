@@ -8,7 +8,6 @@ namespace eval {
 template<typename FPX, typename FSEG, typename F, typename D>
 float ExplainedVariation(const Partition& partition, FPX fpx, FSEG fseg, F foverall, D metric)
 {
-	assert(partition.numSegments() == cluster_features.size());
 	float segment_total = 0.0f;
 	float pixel_total = 0.0f;
 	for(unsigned int i=0; i<partition.numSegments(); i++) {
